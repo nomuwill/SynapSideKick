@@ -1,4 +1,4 @@
-# SynapKit
+# S<sub>y</sub>napKit
 
 **Modular real-time sorter-agnostic spike sorting and stimulation**
 
