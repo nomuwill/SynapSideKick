@@ -2,11 +2,16 @@
 
 **Modular real-time sorter-agnostic spike sorting and stimulation**
 
+TLDR: You can use whichever spike sorter to get a baseline, then real-time
+  detect spikes on channels! This enables 1000x faster iteration though
+  stimulation params, and enables closed loop experiments. 
+
+
 ## Subpackages
 
 | Package | Description |
 |---|---|
-| `synapsortrt` | Real-time spike sorting via GPU template matching |
+| `synapsortrt` | Real-time spike sorting via template matching |
 | `synapremoval` | Stimulation artifact detection and removal |
 | `synapanalysis` | Spike train analysis pipelines |
 | `synapconnect` | Connectors for hardware systems and pre-sorting methods |
@@ -20,7 +25,7 @@ lib = TemplateLibrary.from_spikedata_pickle_avg(pickle_path, spikelab_src)
 lib.save("templates")
 ```
 
-**Phase 2** — Real-time detection + GPU cosine similarity matching
+**Phase 2** — Real-time detection + similarity matching
 ```python
 from synapsortrt.pipeline import SynapsortPipeline
 pipe = SynapsortPipeline(traces, channel_ids, fs, library=lib)
